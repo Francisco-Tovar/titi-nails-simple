@@ -29,10 +29,12 @@
   --grid-gap: 24px;
   --grid-min: 250px;
 }
-/* Theme: Minimal */
+
+/* Theme: Minimal (Sobrescribe radius a 0) */
 body.minimal {
   --radius-card: 0px;
 }
+
 /* Theme: Luxury (Oscuro) */
 body.luxury {
   --bg: #0b0c0f;
@@ -80,22 +82,23 @@ body.pastel {
 
 /* Theme: Instagram */
 body.instagram {
-  --bg: #fafafa;
+  --bg: #ffffff;
+  /* Rayas Diagonales originales pero en Blanco y Rosa muy claro */
   --bg-accent:
-    radial-gradient(circle at 20% 20%, rgba(0, 0, 0, 0.03), transparent 40%),
-    radial-gradient(circle at 80% 30%, rgba(0, 0, 0, 0.04), transparent 50%),
+    radial-gradient(circle at 20% 20%, rgba(0, 0, 0, 0.02), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(0, 0, 0, 0.03), transparent 50%),
     linear-gradient(
       135deg,
-      #f6f3ee 25%,
-      #ede9e3 25%,
-      #ede9e3 50%,
-      #f6f3ee 50%,
-      #f6f3ee 75%,
-      #ede9e3 75%
+      #ffffff 25%,
+      #fff0f5 25%,
+      #fff0f5 50%,
+      #ffffff 50%,
+      #ffffff 75%,
+      #fff0f5 75%
     );
   --text: #141414;
 
-  --primary: #141414;
+  --primary: #9d00ae;
   --border: #dbdbdb;
 
   --radius-card: 4px;
@@ -103,18 +106,11 @@ body.instagram {
   --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
 
   --modal-bg: #ffffff;
-  --font-title: "Inter", system-ui, sans-serif;
-  --grid-gap: 24px; /* Un poco más de espacio entre las cards más grandes */
-  --grid-min: 275px; /* <--- MODIFICADO: Las columnas (y cards) ahora son 25% más grandes */
+  --font-title: -apple-system, "San Francisco", "Pacifico", "Roboto", cursive;
 
-  background-size: 60px 60px;
-  background-repeat: repeat;
-}
-
-/* Reglas específicas para que el patrón se repita correctamente */
-body.instagram {
-  background-size: 60px 60px;
-  background-repeat: repeat;
+  /* Cards 25% más grandes en grid */
+  --grid-gap: 24px;
+  --grid-min: 275px;
 }
 
 /* ================== ESTILOS GLOBALES ================== */
@@ -130,6 +126,12 @@ body {
     background 0.35s ease,
     color 0.35s ease;
   min-height: 100vh;
+}
+
+/* Patrón de rayas de Instagram repetido */
+body.instagram {
+  background-size: 60px 60px;
+  background-repeat: repeat;
 }
 
 a {
@@ -166,12 +168,12 @@ ul {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 1px;
 }
 
 .brand {
   font-family: var(--font-title);
-  font-size: 24px;
+  font-size: 50px;
   color: var(--primary);
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -197,33 +199,29 @@ ul {
 .theme-selector {
   position: relative;
 }
+
+/* Botón circular global (Desktop y Mobile) */
 .theme-trigger {
-  padding: 8px 16px;
-  border-radius: 99px;
-  font-weight: 600;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 50%;
   cursor: pointer;
   background: transparent;
   border: 1px solid var(--border);
   color: var(--text);
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
   transition: all 0.2s ease;
 }
+
 .theme-trigger:hover {
   border-color: var(--primary);
 }
 
-.arrow {
-  width: 6px;
-  height: 6px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: rotate(45deg);
-  transition: transform 0.2s ease;
-}
-.arrow.open {
-  transform: rotate(-135deg);
+.hamburger-icon {
+  display: block;
 }
 
 .theme-menu {
@@ -285,10 +283,15 @@ ul {
   display: block;
 }
 
-/* Polaroid (Theme Instagram) */
+/* Luxury Card Override (Borde Dorado 3px) */
+body.luxury .card {
+  border: 3px solid var(--primary);
+}
+
+/* Polaroid (Theme Instagram Override) */
 body.instagram .card {
   aspect-ratio: auto;
-  padding: 20px 20px 75px 20px; /* <--- MODIFICADO: Marco blanco un 25% más grueso */
+  padding: 20px 20px 75px 20px;
   background: #fff;
   transform: rotate(-2deg);
 }
@@ -309,12 +312,12 @@ body.instagram .card img {
 
 .polaroid-caption {
   position: absolute;
-  bottom: 22px; /* <--- MODIFICADO: Posición ajustada al nuevo marco */
+  bottom: 22px;
   left: 0;
   right: 0;
   text-align: center;
   font-family: "Pacifico", cursive;
-  font-size: 22px; /* <--- MODIFICADO: Texto 25% más grande */
+  font-size: 22px;
   color: #444;
 }
 
@@ -371,7 +374,7 @@ body.instagram .card img {
   display: inline-block;
   padding: 12px 24px;
   background: var(--primary);
-  color: var(--bg); /* Usa el fondo original para máximo contraste */
+  color: var(--bg);
   border-radius: 8px;
   font-weight: 600;
   font-family: var(--font-body);
@@ -387,7 +390,31 @@ body.instagram .card img {
   transform: translateY(-2px);
 }
 
-/* Borde dorado de 3px exclusivo para las cards en tema Luxury */
-body.luxury .card {
-  border: 3px solid var(--primary);
+/* ================== RESPONSIVE / MOBILE FIXES ================== */
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 8px 16px;
+  }
+
+  .brand {
+    width: 100%;
+    text-align: center;
+    font-size: 65px;
+    margin-bottom: 1px;
+    line-height: 1.2;
+  }
+
+  /* Nav centrado en su espacio asignado */
+  .nav {
+    flex: 1; /* Permite que ocupe todo el espacio disponible al lado del botón */
+    justify-content: center; /* Centra los items (links) */
+    gap: 16px;
+    font-size: 0.95rem;
+  }
+
+  .theme-menu {
+    right: 0;
+    left: auto;
+    margin-top: 12px;
+  }
 }
