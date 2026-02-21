@@ -1,11 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { ThemeContext } from "../context/ThemeContext";
 import ThemeSelector from "./ThemeSelector";
 
 const Header: React.FC = () => {
-  const { theme } = useContext(ThemeContext);
-
   return (
     <header className="header">
       <div className="header-inner">
@@ -13,6 +10,7 @@ const Header: React.FC = () => {
 
         <nav className="nav">
           <Link to="/">Galería</Link>
+          <Link to="/about">Sobre Mí</Link> {/* <-- Nuevo enlace */}
           <Link to="/appointments">Agenda una cita</Link>
         </nav>
 
