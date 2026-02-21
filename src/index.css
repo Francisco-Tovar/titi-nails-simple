@@ -1,5 +1,9 @@
 /* ================== SISTEMA DE VARIABLES ================== */
 :root {
+  /* Fuentes Nativas (San Francisco en Apple, Roboto en Android) */
+  --font-body: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+  --font-title: "Montserrat", sans-serif;
+
   /* Minimal Theme (Default - Claro) */
   --bg: #f9f6f3;
   --bg-accent: radial-gradient(
@@ -21,9 +25,6 @@
 
   --modal-overlay: rgba(0, 0, 0, 0.55);
   --modal-bg: #ffffff;
-
-  --font-body: "Inter", "Montserrat", system-ui, sans-serif;
-  --font-title: "Montserrat", sans-serif;
 
   --container-max: 1180px;
   --grid-gap: 24px;
@@ -83,7 +84,7 @@ body.pastel {
 /* Theme: Instagram */
 body.instagram {
   --bg: #ffffff;
-  /* Rayas Diagonales originales pero en Blanco y Rosa muy claro */
+  /* Rayas Diagonales en Blanco y Rosa muy claro */
   --bg-accent:
     radial-gradient(circle at 20% 20%, rgba(0, 0, 0, 0.02), transparent 40%),
     radial-gradient(circle at 80% 30%, rgba(0, 0, 0, 0.03), transparent 50%),
@@ -98,7 +99,7 @@ body.instagram {
     );
   --text: #141414;
 
-  --primary: #9d00ae;
+  --primary: #f08fc2;
   --border: #dbdbdb;
 
   --radius-card: 4px;
@@ -106,7 +107,7 @@ body.instagram {
   --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
 
   --modal-bg: #ffffff;
-  --font-title: "Pacifico", cursive;
+  --font-title: "Roboto", Sans-serif;
 
   /* Cards 25% más grandes en grid */
   --grid-gap: 24px;
@@ -150,7 +151,7 @@ ul {
   padding: 24px 20px 60px;
 }
 
-/* ================== HEADER ================== */
+/* ================== HEADER Y NAVEGACIÓN ================== */
 .header {
   position: sticky;
   top: 0;
@@ -178,7 +179,6 @@ ul {
   font-weight: 700;
   letter-spacing: 0.5px;
 }
-
 .nav {
   display: flex;
   gap: 20px;
@@ -194,13 +194,15 @@ ul {
   opacity: 1;
   color: var(--primary);
 }
-/* ================== NAV TEXT CONTROL (Desktop Default) ================== */
+
+/* Control de texto para Nav (Por defecto en Desktop) */
 .mobile-text {
   display: none;
 }
 .desktop-text {
   display: inline;
 }
+
 /* ================== THEME SELECTOR ================== */
 .theme-selector {
   position: relative;
@@ -363,7 +365,7 @@ body.instagram .card img {
 .page-block {
   background: color-mix(in srgb, var(--bg) 95%, #fff 5%);
   border: 1px solid var(--border);
-  border-radius: var(--radius-card);
+  border-radius: 16px;
   padding: 40px;
   box-shadow: var(--shadow-card);
   max-width: 700px;
@@ -396,40 +398,6 @@ body.instagram .card img {
   transform: translateY(-2px);
 }
 
-/* ================== RESPONSIVE / MOBILE FIXES ================== */
-@media (max-width: 768px) {
-  .header-inner {
-    padding: 8px 16px;
-  }
-
-  .brand {
-    width: 100%;
-    text-align: center;
-    font-size: 65px;
-    margin-bottom: 1px;
-    line-height: 1.2;
-  }
-
-  /* Nav centrado en su espacio asignado */
-  .nav {
-    flex: 1; /* Permite que ocupe todo el espacio disponible al lado del botón */
-    justify-content: center; /* Centra los items (links) */
-    gap: 16px;
-    font-size: 0.95rem;
-  }
-
-  .theme-menu {
-    right: 0;
-    left: auto;
-    margin-top: 12px;
-  }
-  .desktop-text {
-    display: none;
-  }
-  .mobile-text {
-    display: inline;
-  }
-}
 /* ================== ABOUT PAGE & HERO COLLAGE ================== */
 .about-container {
   max-width: 800px;
@@ -440,7 +408,7 @@ body.instagram .card img {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  margin-bottom: -30px; /* Para que se monte un poquito encima del bloque de texto */
+  margin-bottom: -30px; /* Para que se monte sobre el bloque de texto */
   padding: 0 10px;
   position: relative;
   z-index: 2;
@@ -451,15 +419,14 @@ body.instagram .card img {
   max-width: 260px;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: var(--radius-card);
+  border-radius: 16px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-  border: 4px solid var(--bg); /* Crea un marco tipo foto */
+  border: 4px solid var(--bg);
   transition:
     transform 0.3s ease,
     z-index 0.3s ease;
 }
 
-/* Rotaciones divertidas para que parezca scrapbook */
 .hero-collage img:nth-child(1) {
   transform: rotate(-4deg) translateY(10px);
 }
@@ -471,10 +438,42 @@ body.instagram .card img {
   transform: rotate(0deg) scale(1.05);
   z-index: 10;
 }
-/* ================== NAV TEXT CONTROL (Desktop Default) ================== */
-.mobile-text {
-  display: none;
-}
-.desktop-text {
-  display: inline;
+
+/* ================== RESPONSIVE / MOBILE FIXES ================== */
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 12px 16px;
+  }
+
+  .brand {
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 8px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+  }
+
+  /* Nav centrado en su espacio asignado */
+  .nav {
+    flex: 1;
+    justify-content: center;
+    gap: 16px;
+    font-size: 1rem;
+  }
+
+  /* Inversión de textos para celular */
+  .desktop-text {
+    display: none;
+  }
+  .mobile-text {
+    display: inline;
+  }
+
+  /* Menú abre hacia la izquierda para no salirse de la pantalla */
+  .theme-menu {
+    right: 0;
+    left: auto;
+    margin-top: 12px;
+  }
 }
