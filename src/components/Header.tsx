@@ -10,8 +10,16 @@ const Header: React.FC = () => {
 
         <nav className="nav">
           <Link to="/">Galería</Link>
-          <Link to="/about">Sobre Mí</Link> {/* <-- Nuevo enlace */}
-          <Link to="/appointments">Agenda una cita</Link>
+
+          <Link to="/about">
+            <span className="desktop-text">Sobre Mí</span>
+            <span className="mobile-text">Vicky!</span>
+          </Link>
+
+          <Link to="/appointments">
+            <span className="desktop-text">Agenda una cita</span>
+            <span className="mobile-text">Citas!</span>
+          </Link>
         </nav>
 
         <ThemeSelector />

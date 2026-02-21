@@ -106,7 +106,7 @@ body.instagram {
   --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
 
   --modal-bg: #ffffff;
-  --font-title: -apple-system, "San Francisco", "Pacifico", "Roboto", cursive;
+  --font-title: "Pacifico", cursive;
 
   /* Cards 25% más grandes en grid */
   --grid-gap: 24px;
@@ -194,7 +194,13 @@ ul {
   opacity: 1;
   color: var(--primary);
 }
-
+/* ================== NAV TEXT CONTROL (Desktop Default) ================== */
+.mobile-text {
+  display: none;
+}
+.desktop-text {
+  display: inline;
+}
 /* ================== THEME SELECTOR ================== */
 .theme-selector {
   position: relative;
@@ -417,6 +423,12 @@ body.instagram .card img {
     left: auto;
     margin-top: 12px;
   }
+  .desktop-text {
+    display: none;
+  }
+  .mobile-text {
+    display: inline;
+  }
 }
 /* ================== ABOUT PAGE & HERO COLLAGE ================== */
 .about-container {
@@ -458,4 +470,11 @@ body.instagram .card img {
 .hero-collage img:hover {
   transform: rotate(0deg) scale(1.05);
   z-index: 10;
+}
+/* ================== NAV TEXT CONTROL (Desktop Default) ================== */
+.mobile-text {
+  display: none;
+}
+.desktop-text {
+  display: inline;
 }
