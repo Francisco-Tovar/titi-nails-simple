@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import vicky1 from "../assets/about/vicky1.jpg";
-import vicky2 from "../assets/about/vicky2.jpg";
+//import vicky2 from "../assets/about/vicky2.jpg";
 
 const About: React.FC = () => {
   return (
