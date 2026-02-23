@@ -1,12 +1,12 @@
-# Titi's Nails – Versión simplificada
+#Blossom Nail Salon – Versión simplificada
 
-Esta versión de la aplicación de Titi's Nails ofrece una galería de fotos y un botón para reservar citas sin necesidad de implementar OAuth ni API complejas. Es ideal si prefieres un mantenimiento mínimo y un coste cero.
+Esta versión de la aplicación deBlossom Nail Salon ofrece una galería de fotos y un botón para reservar citas sin necesidad de implementar OAuth ni API complejas. Es ideal si prefieres un mantenimiento mínimo y un coste cero.
 
 ## ¿Qué hace?
 
-* **Galería de fotos** – Muestra las imágenes de una carpeta de Google Drive pública. Sólo necesitas proporcionar el ID de la carpeta y un API key. La galería se actualiza automáticamente cuando agregas o quitas fotos en la carpeta.
-* **Reserva de citas** – En lugar de integrar la API de Calendar, se utiliza el sistema de Programación de Citas de Google Calendar. Puedes definir horarios, servicios y duraciones directamente en Google Calendar. La aplicación muestra un botón que redirige a tu enlace de citas.
-* **Panel de administración** – Explica cómo actualizar la galería y las citas modificando la carpeta de Drive y el enlace de citas. También muestra los emails de administradores definidos.
+- **Galería de fotos** – Muestra las imágenes de una carpeta de Google Drive pública. Sólo necesitas proporcionar el ID de la carpeta y un API key. La galería se actualiza automáticamente cuando agregas o quitas fotos en la carpeta.
+- **Reserva de citas** – En lugar de integrar la API de Calendar, se utiliza el sistema de Programación de Citas de Google Calendar. Puedes definir horarios, servicios y duraciones directamente en Google Calendar. La aplicación muestra un botón que redirige a tu enlace de citas.
+- **Panel de administración** – Explica cómo actualizar la galería y las citas modificando la carpeta de Drive y el enlace de citas. También muestra los emails de administradores definidos.
 
 ## Variables de entorno necesarias
 
@@ -19,10 +19,10 @@ VITE_APPOINTMENT_URL=https://calendar.app.google/tu_enlace_de_citas
 VITE_ADMIN_EMAILS=correo_admin1@gmail.com,correo_admin2@gmail.com
 ```
 
-* `VITE_GOOGLE_API_KEY` – API key de Google para consultar el listado de archivos en Drive. Sigue la guía de Google para crear una API key.
-* `VITE_DRIVE_FOLDER_ID` – Identificador de la carpeta de Google Drive que contiene las fotos. La carpeta debe permitir acceso público (cualquiera con el enlace puede ver).
-* `VITE_APPOINTMENT_URL` – Enlace generado por Google Calendar al crear una programación de citas (appointment schedule). Este enlace permite que tus clientas seleccionen horarios disponibles.
-* `VITE_ADMIN_EMAILS` – Lista de correos electrónicos, separados por comas, de las personas que administran el sitio. Se muestran en el panel de administración como referencia.
+- `VITE_GOOGLE_API_KEY` – API key de Google para consultar el listado de archivos en Drive. Sigue la guía de Google para crear una API key.
+- `VITE_DRIVE_FOLDER_ID` – Identificador de la carpeta de Google Drive que contiene las fotos. La carpeta debe permitir acceso público (cualquiera con el enlace puede ver).
+- `VITE_APPOINTMENT_URL` – Enlace generado por Google Calendar al crear una programación de citas (appointment schedule). Este enlace permite que tus clientas seleccionen horarios disponibles.
+- `VITE_ADMIN_EMAILS` – Lista de correos electrónicos, separados por comas, de las personas que administran el sitio. Se muestran en el panel de administración como referencia.
 
 ## Instalación
 

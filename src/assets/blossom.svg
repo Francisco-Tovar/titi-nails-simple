@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="roseGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EAA6B2" />
+      <stop offset="50%" stop-color="#D48B97" />
+      <stop offset="100%" stop-color="#F2C5CC" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#F3E5AB" />
+    </linearGradient>
+  </defs>
+  
+  <circle cx="250" cy="250" r="220" fill="none" stroke="url(#roseGold)" stroke-width="3" stroke-dasharray="12 8" />
+  <circle cx="250" cy="250" r="200" fill="none" stroke="url(#gold)" stroke-width="1" opacity="0.6" />
+
+  <path d="M250 110 C 210 60, 140 80, 160 140 C 180 190, 230 160, 250 160 C 270 160, 320 190, 340 140 C 360 80, 290 60, 250 110 Z" fill="url(#roseGold)" opacity="0.9"/>
+  <path d="M250 160 L 190 240 L 210 245 L 250 175 L 290 245 L 310 240 Z" fill="url(#roseGold)" opacity="0.9"/>
+  <circle cx="250" cy="155" r="16" fill="#ffffff" stroke="url(#gold)" stroke-width="3"/>
+
+  <path d="M120 220 Q 120 250 90 250 Q 120 250 120 280 Q 120 250 150 250 Q 120 250 120 220 Z" fill="url(#gold)" />
+  <path d="M380 180 Q 380 200 360 200 Q 380 200 380 220 Q 380 200 400 200 Q 380 200 380 180 Z" fill="url(#gold)" />
+  <path d="M250 380 Q 250 395 235 395 Q 250 395 250 410 Q 250 395 265 395 Q 250 395 250 380 Z" fill="url(#gold)" />
+
+  <text x="250" y="300" font-family="'Pacifico', cursive" font-size="65" font-weight="Bold" fill="rgb(239, 195, 195)" text-anchor="middle">Blossom</text>
+  <text x="250" y="360" font-family="'Pacifico', cursive" font-size="65" font-weight="Bold" fill="rgb(239, 195, 195)" text-anchor="middle">Nail Studio</text>
+  <text x="250" y="425" font-family="'Montserrat', sans-serif" font-size="18" font-weight="600" letter-spacing="6" fill="#888888" text-anchor="middle">NAIL STUDIO</text>
+</svg>

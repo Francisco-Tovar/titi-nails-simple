@@ -14,6 +14,7 @@ const About: React.FC = () => {
 
       {/* Contenido */}
       <div className="page-block" style={{ textAlign: "center" }}>
+        <br />
         <h2
           style={{
             fontFamily: "var(--font-title)",
@@ -23,7 +24,7 @@ const About: React.FC = () => {
         >
           🎀💅🏻 ¡Holiii! Soy Victoria 💅🏻🎀
         </h2>
-
+        <hr />
         <div
           style={{
             lineHeight: "1.8",
@@ -56,7 +57,7 @@ const About: React.FC = () => {
             ¡este es tu lugar! 🌸🩷 Espero que te gusten mis trabajos y si te
             parece, puedes agendar una cita para que haga mi magia en tus manos.
           </p>
-
+          <hr />
           <h3
             style={{
               fontFamily: "var(--font-title)",

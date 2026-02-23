@@ -16,7 +16,7 @@ const Appointment: React.FC = () => {
   };
 
   // Textos predefinidos para el correo
-  const subject = encodeURIComponent("Solicitud de Cita - Titi's Nails");
+  const subject = encodeURIComponent("Solicitud de Cita - Blossom Nail Studio");
   const bodyText = encodeURIComponent(
     "Hola Vicky, me gustaría agendar una cita para arreglarme las uñas. \n\nMi disponibilidad es...",
   );
@@ -33,7 +33,7 @@ const Appointment: React.FC = () => {
         >
           Reserva tu cita con Vicky
         </h2>
-
+        <hr />
         <p style={{ marginBottom: "2rem", lineHeight: "1.6" }}>
           Elige el método que te resulte más cómodo para agendar tu espacio.
           Puedes usar nuestro calendario automático o escribirnos directamente
@@ -75,14 +75,7 @@ const Appointment: React.FC = () => {
         </div>
 
         {/* Separador */}
-        <div
-          style={{
-            height: "1px",
-            background: "var(--border)",
-            marginBottom: "2.5rem",
-          }}
-        ></div>
-
+        <hr />
         {/* MÉTODO 2: Correo Directo */}
         <div>
           <h3

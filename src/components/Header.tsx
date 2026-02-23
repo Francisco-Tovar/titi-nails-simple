@@ -6,7 +6,28 @@ const Header: React.FC = () => {
   return (
     <header className="header">
       <div className="header-inner">
-        <div className="brand">Titi's Nails</div>
+        {/* 🌸 Logo emoji gigante y Nombre combinados 🌸 */}
+        <Link
+          to="/"
+          className="brand"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "8px",
+            textDecoration: "none",
+          }}
+        >
+          {/* Tamaño actualizado a 4rem */}
+          <span
+            style={{ fontSize: "4rem", lineHeight: "1" }}
+            role="img"
+            aria-label="Flor de cerezo"
+          >
+            🌸
+          </span>
+          <span>Blossom Nail Studio</span>
+        </Link>
 
         <nav className="nav">
           <Link to="/">Galería</Link>
