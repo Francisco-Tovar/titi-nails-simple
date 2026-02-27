@@ -5,6 +5,7 @@ import Gallery from "./components/Gallery";
 import Appointment from "./components/Appointment";
 import AdminPanel from "./components/AdminPanel";
 import About from "./components/About";
+import Info from "./components/Info"; // <-- Importamos la página de Info
 import Footer from "./components/Footer";
 
 const App: React.FC = () => {
@@ -19,10 +20,13 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Gallery />} />
             <Route path="/about" element={<About />} />
+            <Route path="/info" element={<Info />} />{" "}
+            {/* <-- Nueva ruta de Info */}
             <Route path="/appointments" element={<Appointment />} />
             <Route path="/admin" element={<AdminPanel />} />
           </Routes>
         </main>
+
         <Footer />
       </div>
     </Router>

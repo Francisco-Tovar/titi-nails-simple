@@ -187,6 +187,8 @@ hr {
   letter-spacing: 0.5px;
 }
 .nav {
+  margin-left: 10px;
+  margin-right: 10px;
   display: flex;
   gap: 20px;
   align-items: center;
@@ -445,7 +447,47 @@ body.instagram .card img {
   transform: rotate(0deg) scale(1.05);
   z-index: 10;
 }
+/* ================== INFO PAGE COLLAGE (3 Imágenes) ================== */
+.info-collage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap; /* Para que en celulares muy pequeños no se aplasten */
+}
 
+.info-collage img {
+  width: 30%;
+  min-width: 140px;
+  max-width: 220px;
+  aspect-ratio: 9 / 16; /* Formato alargado de las imágenes */
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border: 4px solid var(--bg);
+  transition:
+    transform 0.3s ease,
+    z-index 0.3s ease;
+}
+
+/* Rotaciones divertidas para las 3 cartas */
+.info-collage img:nth-child(1) {
+  transform: rotate(-6deg) translateY(15px);
+}
+.info-collage img:nth-child(2) {
+  transform: rotate(2deg) translateY(-10px);
+  z-index: 3;
+}
+.info-collage img:nth-child(3) {
+  transform: rotate(7deg) translateY(10px);
+}
+
+.info-collage img:hover {
+  transform: rotate(0deg) scale(1.08);
+  z-index: 10;
+}
 /* ================== RESPONSIVE / MOBILE FIXES ================== */
 @media (max-width: 768px) {
   .header-inner {
@@ -463,6 +505,8 @@ body.instagram .card img {
 
   /* Nav centrado en su espacio asignado */
   .nav {
+    margin-left: 10px;
+    margin-right: 10px;
     flex: 1;
     justify-content: center;
     gap: 16px;

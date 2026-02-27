@@ -7,6 +7,7 @@ const Header: React.FC = () => {
     <header className="header">
       <div className="header-inner">
         {/* 🌸 Logo emoji gigante y Nombre combinados 🌸 */}
+
         <Link
           to="/"
           className="brand"
@@ -36,13 +37,15 @@ const Header: React.FC = () => {
             <span className="desktop-text">Sobre Mí</span>
             <span className="mobile-text">Vicky!</span>
           </Link>
-
+          <Link to="/info">
+            <span className="desktop-text">Información</span>
+            <span className="mobile-text">Info!</span>
+          </Link>
           <Link to="/appointments">
             <span className="desktop-text">Agenda una cita</span>
             <span className="mobile-text">Citas!</span>
           </Link>
         </nav>
-
         <ThemeSelector />
       </div>
     </header>
