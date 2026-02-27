@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import metodos from "../assets/info/metodos.jpeg";
+import metodos from "../assets/info/metodos.jpg";
 import politicas from "../assets/info/politicas.jpeg";
 import comprar from "../assets/info/comprar.jpeg";
 
