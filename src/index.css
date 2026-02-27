@@ -18,13 +18,13 @@
   --border: rgba(0, 0, 0, 0.1);
 
   --radius-card: 16px;
-  --radius-modal: 20px;
+  --radius-modal: 5px;
 
   --shadow-card: 0 10px 24px rgba(0, 0, 0, 0.06);
   --shadow-card-hover: 0 18px 40px rgba(0, 0, 0, 0.12);
 
   --modal-overlay: rgba(0, 0, 0, 0.55);
-  --modal-bg: #ffffff;
+  --modal-bg: #f9a1251a;
 
   --container-max: 1180px;
   --grid-gap: 24px;
@@ -55,7 +55,7 @@ body.luxury {
   --shadow-card-hover: 0 20px 50px rgba(212, 175, 55, 0.25);
 
   --modal-overlay: rgba(0, 0, 0, 0.85);
-  --modal-bg: #121316;
+  --modal-bg: #d8e0012a;
 
   --font-title: "Playfair Display", serif;
 }
@@ -71,13 +71,13 @@ body.pastel {
   --text: #2b2b2b;
 
   --primary: #f08fc2;
-  --border: rgba(240, 143, 194, 0.3);
+  --border: rgb(240, 143, 195);
 
   --radius-card: 26px;
   --shadow-card: 0 15px 35px rgba(240, 143, 194, 0.15);
   --shadow-card-hover: 0 20px 45px rgba(240, 143, 194, 0.25);
 
-  --modal-bg: #ffffff;
+  --modal-bg: #f85ced4c;
   --font-title: "Pacifico", cursive;
 }
 
@@ -106,7 +106,7 @@ body.instagram {
   --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
   --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
 
-  --modal-bg: #ffffff;
+  --modal-bg: #fafafa34;
   --font-title: "Roboto", Sans-serif;
 
   /* Cards 25% más grandes en grid */
@@ -527,6 +527,31 @@ body.instagram .card img {
     left: auto;
     margin-top: 12px;
   }
+  /* --- CORRECCIÓN PARA EL COLLAGE DE INFO --- */
+  .info-collage {
+    gap: 10px; /* Reducimos el espacio entre imágenes en mobile */
+    justify-content: center; /* Aseguramos centrado horizontal */
+    align-items: center; /* Aseguramos centrado vertical */
+  }
+
+  /* Eliminamos el desplazamiento vertical (translateY) para alinear las 3 imágenes en mobile,
+     pero mantenemos las rotaciones estéticas */
+  .info-collage img:nth-child(1) {
+    transform: rotate(-6deg) translateY(0);
+  }
+  .info-collage img:nth-child(2) {
+    transform: rotate(2deg) translateY(0);
+    z-index: 3;
+  }
+  .info-collage img:nth-child(3) {
+    transform: rotate(7deg) translateY(0);
+  }
+
+  /* Ajuste de tamaño para que quepan bien en pantallas muy estrechas */
+  .info-collage img {
+    width: 28%; /* Un poquito más pequeñas para mayor margen */
+    min-width: 100px; /* Reducimos el ancho mínimo */
+  }
 }
 /* ================== FOOTER ================== */
 .footer {
@@ -560,4 +585,85 @@ body.instagram .card img {
   font-size: 0.8rem;
   opacity: 0.6;
   letter-spacing: 0.5px;
+}
+/* ================== MODAL OVERLAY (CENTRED) ================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  /* Flexbox estricto en el fondo para centrar todo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 15px; /* Margen interno para que nada toque los bordes del celular */
+  box-sizing: border-box;
+}
+
+.modal-content {
+  position: relative;
+  /* El contenedor solo ocupa el espacio de la imagen, ni más ni menos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+  animation: popIn 0.3s ease-out forwards;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--primary);
+  object-fit: contain;
+  margin: 0; /* Quitamos cualquier margen que la esté empujando */
+}
+
+/* Botón flotante */
+.modal-close {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: var(--bg);
+  color: var(--text);
+  border: 2px solid var(--primary);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  z-index: 10000;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.modal-close:hover {
+  transform: scale(1.1);
+  background: var(--primary);
+  color: white;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

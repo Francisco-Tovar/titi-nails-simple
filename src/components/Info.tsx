@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import metodos from "../assets/info/metodos.jpeg";
 import politicas from "../assets/info/politicas.jpeg";
 import comprar from "../assets/info/comprar.jpeg";
 
 const Info: React.FC = () => {
+  // State to hold the image currently being viewed in the modal
+  const [selectedImg, setSelectedImg] = useState<string | null>(null);
+
   return (
     <section className="container about-container">
       <div className="page-block" style={{ textAlign: "center" }}>
@@ -29,13 +32,50 @@ const Info: React.FC = () => {
           políticas del estudio. ¡Lee con atención antes de agendar! ✨
         </p>
 
-        {/* Hero Collage de 3 Imágenes */}
+        {/* Hero Collage */}
         <div className="info-collage">
-          <img src={comprar} alt="Cómo comprar" title="Cómo comprar" />
-          <img src={metodos} alt="Métodos de pago" title="Métodos de pago" />
-          <img src={politicas} alt="Políticas" title="Políticas" />
+          <img
+            src={comprar}
+            alt="Cómo comprar"
+            title="Cómo comprar"
+            onClick={() => setSelectedImg(comprar)}
+            style={{ cursor: "pointer" }}
+          />
+          <img
+            src={metodos}
+            alt="Métodos de pago"
+            title="Métodos de pago"
+            onClick={() => setSelectedImg(metodos)}
+            style={{ cursor: "pointer" }}
+          />
+          <img
+            src={politicas}
+            alt="Políticas"
+            title="Políticas"
+            onClick={() => setSelectedImg(politicas)}
+            style={{ cursor: "pointer" }}
+          />
         </div>
       </div>
+
+      {/* Modal Overlay */}
+      {selectedImg && (
+        <div className="modal-overlay" onClick={() => setSelectedImg(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="modal-close"
+              onClick={() => setSelectedImg(null)}
+            >
+              &times;
+            </button>
+            <img
+              src={selectedImg}
+              alt="Información ampliada"
+              className="modal-image"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
