@@ -18,7 +18,9 @@ const Footer: React.FC = () => {
           >
             Thovarisk
           </a>{" "}
-          en 2026
+          en 2026. <br />
+          IA utilizada para mejorar contenido y diseños, todos las creaciones
+          son trabajos reales por Vicky.
         </p>
       </div>
     </footer>
